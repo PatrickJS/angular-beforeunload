@@ -1,7 +1,7 @@
 {
-  "name": "angular-onbeforeunload",
+  "name": "angular-beforeunload",
   "version": "0.0.1",
-  "main": "angular-onbeforeunload.js",
+  "main": "angular-beforeunload.js",
   "ignore": [
     "**/.*",
     "*.yml",
@@ -12,6 +12,6 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.2.0-rc.2"
+    "angular": "~1.2.0"
   }
 }
