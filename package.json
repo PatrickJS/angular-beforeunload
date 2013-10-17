@@ -1,7 +1,7 @@
 {
-  "name": "angular-onbeforeunload",
+  "name": "angular-beforeunload",
   "version": "0.0.1",
-  "main": "angular-onbeforeunload.js",
+  "main": "angular-beforeunload.js",
   "description": "Angular.js service for onBeforeUnload",
   "homepage": "https://github.com/gdi2290/angular-onbeforeunload",
   "bugs": "https://github.com/gdi2290/angular-onbeforeunload/issues",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:gdi2290/angular-onbeforeunload.git"
+    "url": "git@github.com:gdi2290/angular-beforeunload.git"
   },
   "licenses": [
     {
