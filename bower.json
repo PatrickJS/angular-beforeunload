@@ -1,7 +1,12 @@
 {
   "name": "angular-beforeunload",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "homepage": "https://github.com/gdi2290/angular-forkit",
+  "authors": [
+    "gdi2290 <github@gdi2290.com>"
+  ],
   "main": "angular-beforeunload.js",
+  "description": "Angular.js service for onBeforeUnload",
   "ignore": [
     "**/.*",
     "*.yml",
