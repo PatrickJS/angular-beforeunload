@@ -1,10 +1,10 @@
 {
   "name": "angular-beforeunload",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "angular-beforeunload.js",
   "description": "Angular.js service for onBeforeUnload",
-  "homepage": "https://github.com/gdi2290/angular-onbeforeunload",
-  "bugs": "https://github.com/gdi2290/angular-onbeforeunload/issues",
+  "homepage": "https://github.com/gdi2290/angular-beforeunload",
+  "bugs": "https://github.com/gdi2290/angular-beforeunload/issues",
   "author": {
     "name": "Patrick Stapleton",
     "email": "patrick@gdi2290.com",
@@ -22,5 +22,11 @@
   "dependencies": {
   },
   "devDependencies": {
+    "grunt": "~0.4.1",
+    "load-grunt-tasks": "~0.1.0",
+    "time-grunt": "~0.1.0",
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt-contrib-watch": "~0.5.0"
   }
 }
