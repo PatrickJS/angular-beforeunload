@@ -2,7 +2,7 @@
 'use strict';
 
 /* Before Unload Service */
-app.provider('onBeforeUnload', function() {
+app.provider('BeforeUnload', function() {
   var _leavingPageText = "You'll lose your changes if you leave";
   var _leavingPageText2 = "Are you sure you want to leave this page?";
   var _turnOffConfirm = false;
