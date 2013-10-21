@@ -1,31 +1,62 @@
+;(function(app) {
 'use strict';
 
-angular.module('angular-beforeunload', [])
-  .factory('BeforeUnload', ['$window',
-    function($window) {
-      var leavingPageText = "You'll lose your changes if you leave";
-      var leavingPageText2 = "Are you sure you want to leave this page?";
-      
-      function init(top, bottom) {
-        leavingPageText = top || leavingPageText;
-        leavingPageText2 = bottom || leavingPageText2;
-        
-        $window.onbeforeunload = function(e){
-          return leavingPageText;
-        }
-        
-        return function(event, next, current) {
-          if (!confirm(leavingPageText + "\n\n"+leavingPageText2)) {
-            event.preventDefault();
-          } else {
-            $window.onbeforeunload = null;
-          } 
-        };
-      }
-      
-      return {
-        init: init
-      }
+/* Before Unload Service */
+app.provider('onBeforeUnload', function() {
+  var _leavingPageText = "You'll lose your changes if you leave";
+  var _leavingPageText2 = "Are you sure you want to leave this page?";
+  var _turnOffConfirm = false;
+  var _debugCallback = angular.noop;
 
-    }
-  ]);
+  this.development = function(config) {
+    _turnOffConfirm = config;
+    return this;
+  };
+
+  this.setLeavingText = function(text1, text2) {
+    _leavingPageText = text1;
+    _leavingPageText2 = text2;
+    return this;
+  };
+
+  this.debugCallback = function(callback) {
+    _debugCallback = callback;
+    return this;
+  };
+
+  this.$get = ['$window', function($window) {
+    return {
+      init: function(top, bottom) {
+        _leavingPageText = top || _leavingPageText;
+        _leavingPageText2 = bottom || _leavingPageText2;
+
+        if (!_turnOffConfirm) {
+          $window.onbeforeunload = function(e){
+            return _leavingPageText;
+          }
+        }
+        return function(event, confirmCallback, cancelCallback) {
+          if (_turnOffConfirm) {
+            confirmCallback();
+            _debugCallback();
+            $window.onbeforeunload = null;
+            return;
+          }
+          if (confirm(leavingPageText + "\n\n"+leavingPageText2)) {
+            // OK
+            $window.onbeforeunload = null;
+            callback();
+          } else {
+            // Cancel
+            event.preventDefault();
+            cancelCallback();
+          }
+        }; // return func
+      } // end init
+    } // end return
+
+  }];
+});
+
+
+}(angular.module('angular-beforeunload')));
