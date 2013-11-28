@@ -2,9 +2,9 @@
 Confirm dialog pop up if they try and (or accidently click away from) the page.
 ```javascript
 angular.module('YOUR_APP', [
-  'angular-beforeunload'
+  'angular-onbeforeunload'
 ])
-  .controller('MainCtrl', function(BeforeUnload) {
+  .controller('MainCtrl', function(onBeforeUnload) {
     // Bind a listener on your current $scope and save reference to it.
     var onbeforeunload = $scope.$on('$locationChangeStart', BeforeUnload.init('TOP_MESSAGE', 'BOTTOM_MESSAGE'))
     // In this controller the user will be prompted to
